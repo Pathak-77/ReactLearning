@@ -1,81 +1,64 @@
-/*import React, { useState } from "react";
+import React, { useState } from "react";
 
 const Booking = (props)=> {
-    const [date, setDate] = useState("");
-    const [times, setTimes] = useState("");
-    const [guests, setGuests] = useState("");
+    
+  const [date, setDate] = useState("");
+  const [times, setTimes] = useState("");
+  const [guests, setGuests] = useState("");
+  const [occasion, setOccasion] = useState("");
 
-    const book = (e) =>{
-        e.preventDefault();
-        props.SubmitForm(e);
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    props.submitForm(e);
+  }
 
-    const handleChange =(e) =>{
-        setDate(e);
-        props.dispatch(e);
-    } 
-    return(
-        <header>
-            <section>
-                <form 
-                    method="post" 
-                    onSubmit={book}>
-                        
-                       <fieldset>
-                            <div>
-                                <label htmlFor="book-date">
-                                    Dates
-                                </label>
-                                <input 
-                                    id="book-date"
-                                    value={date}
-                                    onChange={(e) => handleChange(e.target.value)}
-                                    type="date"
-                                    required
-                                />
-                            </div>
+  const handleDateChange = (e) => {
+    setDate(e);
+    props.dispatch(e)
+  }
 
-                            <div>
-                                <label htmlFor="book-time">
-                                    Time
-                                </label>
-                                <select id="book-time" value={times} onChange={(e) => setTimes(e.target.value)}>
-                                    <option value="">Choose your timing</option>
-                                    {
-                                        props.availableTimes.availableTime.map(availabletimes => {
-                                            return ( <option key= {availabletimes}>{availabletimes}
-                                            </option>)
-                                        })
-                                    }
-                                </select>
-                            </div>
+  const availableTimes = ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"]
 
-                            <div>
-                                <label htmlFor="book-guests">
-                                    No of people
-                                </label>
-                                <input 
-                                    id="book-guests"
-                                    min={1}
-                                    value={guests}
-                                    onChange={(e) => setGuests(e.target.value)}
-                                    type="date"
-                                    required
-                                />
-                            </div>
-
-                            <div className="btnReceive">
-                                <input
-                                    aria-label="On Click"
-                                    type="submit" 
-                                    value={"RESERVE"}
-                                />
-                            </div>
-                        </fieldset> 
-                </form>
-            </section>
-        </header>
-    );
+  return (
+    <section className='booking-form'>
+      <form onSubmit={handleSubmit}>
+        <fieldset>
+        
+          <div>
+            <label htmlFor="book-date">Choose Date:</label>
+            <input id='book-date' type="date" value={date} onChange={e => handleDateChange(e.target.value)} required/>
+          </div>
+         
+          <div>
+            <label htmlFor="book-time">Choose Time:</label>
+            <select name="" id="book-time" value={times} onChange={e => setTimes(e.target.value)} required>
+              <option>Select a Time</option>
+              {
+                availableTimes.map(availableTimes => {return <option key={availableTimes}>{availableTimes}</option>})
+              }
+            </select>
+          </div>
+         
+          <div>
+            <label htmlFor="book-guests">Number of Guests:</label>
+            <input type="number" id='book-guests' min={1} placeholder="1" onChange={e => setGuests(e.target.value)} required/>
+          </div>
+        
+          <div>
+            <label htmlFor="book-occasion">Occasion:</label>
+            <select name="" id="book-occasion" onChange={e => setOccasion(e.target.value)} required>
+              <option value="">Birthday</option>
+              <option value="">Anniversary</option>
+            </select>
+          </div>
+          
+          <div className='reservation-button' onClick = {handleSubmit}>
+            <button>Make Your Reservation</button>
+          </div>
+        </fieldset>
+      </form>
+    </section>
+  );
 };
 
-export default Booking;*/
+export default Booking;

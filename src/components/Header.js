@@ -12,7 +12,7 @@ return (
                     London
                 </h3>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis earum nisi blanditiis aliquam consectetur sed! Necessitatibus eaque facilis quas, repellendus facere dignissimos autem odio omnis illo voluptates dolor saepe iste..</p>
-                <button aria-label="On Click">Reserve Table</button>
+                <a href="/booking"><button aria-label="On Click">Reserve Table</button></a>
             </div>
 
             <div className="banner-img">

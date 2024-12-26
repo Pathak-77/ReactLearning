@@ -1,4 +1,4 @@
-/*import React from "react";
+import React from "react";
 
 const Confirm = () => {
     return(
@@ -8,4 +8,4 @@ const Confirm = () => {
     );
 };
 
-export default Confirm;*/
+export default Confirm;
